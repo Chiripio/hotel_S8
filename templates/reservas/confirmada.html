@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Reserva confirmada</title></head>
+  <body>
+    <h1>Reserva #{{ r.id }} confirmada ✅</h1>
+    <p><strong>Nombre:</strong> {{ r.nombre }} — <strong>Email:</strong> {{ r.email }}</p>
+    <p><strong>Habitación:</strong> {{ r.habitacion }} | <strong>Fechas:</strong> {{ r.fecha_entrada }} → {{ r.fecha_salida }}</p>
+    <p><a href="/">Inicio</a></p>
+  </body>
+</html>

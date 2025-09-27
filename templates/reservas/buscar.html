@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Buscar habitaciones</title>
+  </head>
+  <body>
+    <h1>Buscar habitaciones por fechas</h1>
+
+    {% if error %}
+      <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form action="/habitaciones/" method="get">
+      <label>
+        Check-in: 
+        <input type="date" name="checkin" required>
+      </label>
+      <label>
+        Check-out: 
+        <input type="date" name="checkout" required>
+      </label>
+      <button type="submit">Consultar</button>
+    </form>
+
+    <p><a href="/">Volver</a></p>
+  </body>
+</html>

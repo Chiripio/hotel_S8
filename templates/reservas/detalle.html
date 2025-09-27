@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Detalle habitación</title></head>
+  <body>
+    <h1>Detalle de habitación</h1>
+    <p><strong>Tipo:</strong> {{ h.tipo }}</p>
+    <p><strong>Capacidad:</strong> {{ h.capacidad }} personas</p>
+    <p><strong>Precio por noche:</strong> ${{ h.precio_noche }}</p>
+
+    <p>
+      <a href="/reservar/{{ h.id }}/?checkin={{ ci }}&checkout={{ co }}">Reservar esta habitación</a>
+      | <a href="/habitaciones/?checkin={{ ci }}&checkout={{ co }}">Volver al listado</a>
+    </p>
+  </body>
+</html>

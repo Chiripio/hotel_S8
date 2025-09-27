@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Venv
+.venv/
+
+# Django
+db.sqlite3
+/staticfiles/
+media/
+.env
+.DS_Store

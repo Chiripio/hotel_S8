@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Reservar habitación</title></head>
+  <body>
+    <h1>Reservar: {{ h.tipo }} (capacidad {{ h.capacidad }})</h1>
+
+    {% if error %}
+      <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <label>Nombre: <input type="text" name="nombre" value="{{ nombre }}" required></label><br>
+      <label>Email: <input type="email" name="email" value="{{ email }}" required></label><br>
+      <label>Check-in: <input type="date" name="checkin" value="{{ ci }}" required></label>
+      <label>Check-out: <input type="date" name="checkout" value="{{ co }}" required></label>
+      <button type="submit">Confirmar</button>
+    </form>
+
+    <p><a href="/habitaciones/?checkin={{ ci }}&checkout={{ co }}">Volver</a> | <a href="/">Inicio</a></p>
+  </body>
+</html>
