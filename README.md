@@ -58,4 +58,4 @@ Caso: **Sistema de Reservas de Hotel**
 
 ---
 
-✍️ *Desarrollado por Eduardo (Chiripio) para el ramo Ingeniería de Software (Duoc UC)*
+✍️ *Desarrollado por Eduardo (Chiripio) para el ramo Ingeniería de Software*
