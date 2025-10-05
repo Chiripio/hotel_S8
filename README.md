@@ -1,6 +1,6 @@
-# 🏨 Hotel S7 — MVP Semana 7
+# 🏨 Hotel S8 — MVP Semana 8
 
-Proyecto de **Ingeniería de Software (PRY3211)** — Semana 7  
+Proyecto de **Ingeniería de Software (PRY3211)** — Semana 8  
 Caso: **Sistema de Reservas de Hotel**
 
 ## 🚀 Tecnologías
