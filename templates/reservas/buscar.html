@@ -3,26 +3,59 @@
   <head>
     <meta charset="utf-8">
     <title>Buscar habitaciones</title>
+    <style>
+      :root { --bg:#f7f7fb; --card:#ffffff; --text:#111827; --muted:#6b7280; --accent:#2563eb; }
+      html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:-apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+
+      /* Topbar refinada */
+      .topbar { 
+        position: sticky; top: 0; z-index: 50;
+        font-size:12px; padding:6px 12px;
+        background:#fff; border-bottom:1px solid #e5e7eb;
+        box-shadow: 0 2px 8px rgba(0,0,0,.04);
+      }
+
+      .container { max-width:980px; margin:48px auto 32px; padding:0 20px; }
+      h1 { font-size:32px; font-weight:800; letter-spacing:-.02em; margin:0 0 16px; }
+      .btn { display:inline-block; padding:12px 18px; border-radius:12px; text-decoration:none; border:1px solid #d1d5db; background:var(--card); color:var(--text); transition:all .15s ease; }
+      .btn:hover { transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.06); }
+      .btn-primary { background:var(--accent); color:#fff; border-color:transparent; }
+      .muted { color:var(--muted); }
+      form { background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+      label { display:inline-flex; flex-direction:column; gap:6px; margin:8px 12px 8px 0; font-size:14px; color:var(--text); }
+      input[type="date"] { padding:8px 10px; border:1px solid #d1d5db; border-radius:8px; }
+      .actions { margin-top:12px; display:flex; gap:12px; align-items:center; }
+    </style>
   </head>
   <body>
-    <h1>Buscar habitaciones por fechas</h1>
+    <div class="topbar">
+      <strong>Tipo de cambio</strong> CLP ↔ USD:
+      1 USD = {{ fx_usd_clp|floatformat:0 }} CLP
+      | 1 CLP = {{ fx_clp_usd|floatformat:4 }} USD
+      <span style="opacity:.6;">— {{ fx_ts }}</span>
+      {% if fx_fallback %}<span style="color:#b45309;">(respaldo)</span>{% endif %}
+    </div>
+    <div class="container">
+      <h1>Buscar habitaciones por fechas</h1>
 
-    {% if error %}
-      <p style="color:red">{{ error }}</p>
-    {% endif %}
+      {% if error %}
+        <p style="color:red">{{ error }}</p>
+      {% endif %}
 
-    <form action="/habitaciones/" method="get">
-      <label>
-        Check-in: 
-        <input type="date" name="checkin" required>
-      </label>
-      <label>
-        Check-out: 
-        <input type="date" name="checkout" required>
-      </label>
-      <button type="submit">Consultar</button>
-    </form>
-
-    <p><a href="/">Volver</a></p>
+      <form action="/habitaciones/" method="get">
+        <label>
+          Check-in:
+          <input type="date" name="checkin" required>
+        </label>
+        <label>
+          Check-out:
+          <input type="date" name="checkout" required>
+        </label>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Consultar</button>
+          <a class="btn" href="/">Volver</a>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

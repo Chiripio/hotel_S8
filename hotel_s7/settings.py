@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'reservas.views.fx_rate_context',  # <- mejora: context processor global
             ],
         },
     },
@@ -72,13 +73,30 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hotel_s7.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# === Bases de datos ===
+# Dejamos Oracle activo con tus credenciales reales (XEPDB1 / hotel / duoc2024).
+# Si quieres volver a SQLite para pruebas locales, descomenta el bloque de abajo
+# y comenta el de Oracle.
 
+"""
+# --- Opción 1: SQLite (rápido para pruebas locales) ---
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+"""
+
+# --- Opción 2: Oracle (prototipo funcional final) ---
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        # DSN en formato SERVICE NAME (no SID): host:puerto/SERVICE_NAME
+        # Ejemplo válido para Oracle XE en Docker local:
+        'NAME': '127.0.0.1:1521/XEPDB1',
+        'USER': 'hotel',
+        'PASSWORD': 'duoc2024',
     }
 }
 

@@ -1,16 +1,20 @@
-# Python
+# Python / Django
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-*.egg-info/
+*.log
+*.pot
+*.py~
+*.swp
 
-# Venv
+# Entornos virtuales
 .venv/
+venv/
 
-# Django
-db.sqlite3
-/staticfiles/
-media/
-.env
+# Sistema / IDE
 .DS_Store
+.vscode/
+.idea/
+
+# SQLite local (no la usamos, pero por si acaso)
+*.sqlite3
+db.sqlite3

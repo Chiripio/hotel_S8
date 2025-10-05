@@ -1,12 +1,49 @@
 <!doctype html>
 <html>
-  <head><meta charset="utf-8"><title>Hotel - Home</title></head>
+  <head><meta charset="utf-8"><title>Hotel - Home</title>
+<style>
+  :root { --bg:#f7f7fb; --card:#ffffff; --text:#111827; --muted:#6b7280; --accent:#2563eb; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:-apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+
+  /* Topbar refinada */
+  .topbar { 
+    position: sticky; top: 0; z-index: 50;
+    font-size:12px; padding:6px 12px;
+    background:#fff; border-bottom:1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  }
+
+  .container { max-width:980px; margin:48px auto 32px; padding:0 20px; }
+  h1 { font-size:40px; font-weight:800; letter-spacing:-.02em; margin:0 0 8px; }
+  .subtitle { font-size:22px; color:#6b7280; margin:0 0 28px; }
+  .btn { display:inline-block; padding:12px 18px; border-radius:12px; text-decoration:none; border:1px solid #d1d5db; background:var(--card); color:var(--text); transition:all .15s ease; }
+  .btn:hover { transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.06); }
+  .btn-primary { background:var(--accent); color:#fff; border-color:transparent; }
+  .links { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .card { background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:18px; margin-top:18px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+  li { line-height:1.5; margin:8px 0; }
+  .rate { font-variant-numeric: tabular-nums; }
+  .muted { color:var(--muted); }
+  .footer { color:#9ca3af; font-size:12px; text-align:center; margin:48px 0 16px; }
+</style>
+  </head>
   <body>
-    <h1>Hotel — MVP Semana 7</h1>
-    <p>Bienvenido. Proyecto corriendo con SQLite.</p>
-    <p>
-      <a href="/buscar/">Buscar por fechas</a> |
-      <a href="/habitaciones/?checkin=2025-10-10&checkout=2025-10-12">Ver disponibles (demo)</a>
-    </p>
+    <!-- FX banner (global) -->
+    <div class="topbar">
+      <strong>Tipo de cambio</strong> CLP ↔ USD:
+      1 USD = {{ fx_usd_clp|floatformat:0 }} CLP
+      | 1 CLP = {{ fx_clp_usd|floatformat:4 }} USD
+      <span style="opacity:.6;">— {{ fx_ts }}</span>
+      {% if fx_fallback %}<span style="color:#b45309;">(respaldo)</span>{% endif %}
+    </div>
+<div class="container">
+  <h1>Hotel Pacific Reef — Prototipo Funcional</h1>
+  <p class="subtitle">Bienvenido. Proyecto corriendo con SQLite.</p>
+  <div class="links">
+    <a class="btn btn-primary" href="/buscar/">Buscar por fechas</a>
+    <a class="btn" href="/habitaciones/?checkin=2025-10-10&checkout=2025-10-12">Ver disponibles (demo)</a>
+  </div>
+  <div class="footer">Hotel Pacific Reef — prototipo funcional (Semana 8)</div>
+</div>
   </body>
 </html>
