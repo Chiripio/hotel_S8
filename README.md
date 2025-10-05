@@ -184,6 +184,9 @@ requests==2.32.5
 
 ---
 
+### Script SQL de respaldo
+El esquema e inserts de ejemplo están en `/sql/hotel_s8_schema.sql`.
+
 ## 👤 Autor
 **Eduardo Guerrero**  
 Correo: [edua.guerrero@gmail.com](mailto:edua.guerrero@gmail.com)  
