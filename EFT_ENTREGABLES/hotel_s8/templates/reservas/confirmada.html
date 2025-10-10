@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reserva confirmada</title>
+    <style>
+      :root { --bg:#f7f7fb; --card:#ffffff; --text:#111827; --muted:#6b7280; --accent:#2563eb; }
+      html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:-apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+
+      .topbar { 
+        position: sticky; top: 0; z-index: 50;
+        font-size:12px; padding:6px 12px;
+        background:#fff; border-bottom:1px solid #e5e7eb;
+        box-shadow: 0 2px 8px rgba(0,0,0,.04);
+      }
+
+      .container { max-width:980px; margin:48px auto 32px; padding:0 20px; text-align:center; }
+      h1 { font-size:34px; font-weight:800; letter-spacing:-.02em; margin:0 0 16px; }
+      p { color:var(--text); margin:8px 0; }
+      .btn { display:inline-block; padding:12px 18px; border-radius:12px; text-decoration:none; border:1px solid #d1d5db; background:var(--card); color:var(--text); transition:all .15s ease; }
+      .btn:hover { transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.06); }
+      .btn-primary { background:var(--accent); color:#fff; border-color:transparent; }
+      .muted { color:var(--muted); }
+      .card { background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:20px; margin-top:20px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+      .footer { color:#9ca3af; font-size:12px; text-align:center; margin:48px 0 16px; }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <strong>Tipo de cambio</strong> CLP ↔ USD:
+      1 USD = {{ fx_usd_clp|floatformat:0 }} CLP
+      | 1 CLP = {{ fx_clp_usd|floatformat:4 }} USD
+      <span style="opacity:.6;">— {{ fx_ts }}</span>
+      {% if fx_fallback %}<span style="color:#b45309;">(respaldo)</span>{% endif %}
+    </div>
+    <div class="container">
+      <h1>Reserva #{{ r.id }} confirmada ✅</h1>
+      <div class="card">
+        <p><strong>Nombre:</strong> {{ r.nombre }}</p>
+        <p><strong>Email:</strong> {{ r.email }}</p>
+        <p><strong>Habitación:</strong> {{ r.habitacion }}</p>
+        <p><strong>Fechas:</strong> {{ r.fecha_entrada }} → {{ r.fecha_salida }}</p>
+      </div>
+      <div style="margin-top:24px;">
+        <a class="btn btn-primary" href="/">Volver al inicio</a>
+      </div>
+      <div class="footer">Hotel Pacific Reef — prototipo funcional (Semana 8)</div>
+    </div>
+  </body>
+</html>

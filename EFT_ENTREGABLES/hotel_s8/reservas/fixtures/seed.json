@@ -1,0 +1,20 @@
+[
+  { "model": "reservas.habitacion", "pk": 1, "fields": { "tipo": "Individual", "capacidad": 1, "precio_noche": 50000 } },
+  { "model": "reservas.habitacion", "pk": 2, "fields": { "tipo": "Doble",      "capacidad": 2, "precio_noche": 80000 } },
+  { "model": "reservas.habitacion", "pk": 3, "fields": { "tipo": "Doble",      "capacidad": 2, "precio_noche": 90000 } },
+  { "model": "reservas.habitacion", "pk": 4, "fields": { "tipo": "Suite",      "capacidad": 3, "precio_noche": 150000 } },
+  { "model": "reservas.habitacion", "pk": 5, "fields": { "tipo": "Suite",      "capacidad": 4, "precio_noche": 200000 } },
+
+  { "model": "reservas.reserva", "pk": 1, "fields": {
+      "habitacion": 2, "fecha_entrada": "2025-10-15", "fecha_salida": "2025-10-18",
+      "nombre": "María", "email": "maria@ej.com"
+  }},
+  { "model": "reservas.reserva", "pk": 2, "fields": {
+      "habitacion": 4, "fecha_entrada": "2025-10-10", "fecha_salida": "2025-10-12",
+      "nombre": "Pedro", "email": "pedro@ej.com"
+  }},
+  { "model": "reservas.reserva", "pk": 3, "fields": {
+      "habitacion": 1, "fecha_entrada": "2025-11-01", "fecha_salida": "2025-11-03",
+      "nombre": "Ana", "email": "ana@ej.com"
+  }}
+]

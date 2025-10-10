@@ -1,0 +1,20 @@
+# Python / Django
+__pycache__/
+*.pyc
+*.log
+*.pot
+*.py~
+*.swp
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Sistema / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# SQLite local (no la usamos, pero por si acaso)
+*.sqlite3
+db.sqlite3
